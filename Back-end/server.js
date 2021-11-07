@@ -5,9 +5,11 @@ const PORT = process.env.PORT || 4040;
 
 const app = express();
 app.use(express.static('Public'));
+app.set('view engine', 'ejs')
+app.set('views', path.resolve(__dirname)+ '/Templates/RG-Form')
 
 app.get('/', (req, res) => {
-    res.render(path.resolve(__dirname)+'/Public/HTML/index.ejs');
+    res.render('sign-up-in.ejs');
 })
 
 app.listen(PORT, () => {
